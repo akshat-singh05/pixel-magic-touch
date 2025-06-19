@@ -1,37 +1,43 @@
 
-import { Palette, Zap, Shield, Globe, Layers, Smartphone } from "lucide-react";
+import { Star, Package, BarChart3, Building2, MessageSquare, Search } from "lucide-react";
 
 const FeaturesSection = () => {
   const features = [
     {
-      icon: Palette,
-      title: "Brand Consistency",
-      description: "Maintain consistent branding across all your projects with unified color palettes and typography."
+      icon: Star,
+      title: "Automated Review Management",
+      description: "Automatically send follow-up requests for feedback while staying within Amazon's rules.",
+      gradient: "from-yellow-400 to-orange-500"
     },
     {
-      icon: Zap,
-      title: "Lightning Fast",
-      description: "Access your brand assets instantly with our optimized cloud-based storage system."
+      icon: Package,
+      title: "Inventory Tracking",
+      description: "Get real-time alerts when you're running low on stock to prevent lost sales.",
+      gradient: "from-orange-400 to-red-500"
     },
     {
-      icon: Shield,
-      title: "Secure Storage",
-      description: "Your brand assets are protected with enterprise-grade security and encryption."
+      icon: BarChart3,
+      title: "Performance Dashboard",
+      description: "Monitor your store's performance with detailed analytics and insights.",
+      gradient: "from-cyan-400 to-blue-500"
     },
     {
-      icon: Globe,
-      title: "Global Access",
-      description: "Access your brand kits from anywhere in the world with real-time synchronization."
+      icon: Building2,
+      title: "Multi-Store Management",
+      description: "Manage multiple Amazon stores from a single, unified dashboard.",
+      gradient: "from-red-400 to-pink-500"
     },
     {
-      icon: Layers,
-      title: "Version Control",
-      description: "Track changes and maintain version history for all your brand components."
+      icon: MessageSquare,
+      title: "Automated Messaging",
+      description: "Send personalized messages to customers automatically while maintaining compliance.",
+      gradient: "from-gray-400 to-gray-600"
     },
     {
-      icon: Smartphone,
-      title: "Mobile Ready",
-      description: "Fully responsive interface that works perfectly on all devices and screen sizes."
+      icon: Search,
+      title: "Competitor Analysis",
+      description: "Track competitor pricing, keywords, and strategies to stay ahead of the competition.",
+      gradient: "from-teal-400 to-cyan-500"
     }
   ];
 
@@ -39,11 +45,16 @@ const FeaturesSection = () => {
     <section id="features" className="py-24 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent mb-4">
-            Powerful Features
+          <h2 className="text-5xl font-bold mb-8">
+            <span className="text-white">Everything You Need to</span>
+            <br />
+            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+              Scale Your Business
+            </span>
           </h2>
-          <p className="text-xl text-foreground/80 max-w-2xl mx-auto">
-            Everything you need to manage your brand identity efficiently and effectively.
+          <p className="text-xl text-foreground/80 max-w-4xl mx-auto">
+            Our comprehensive suite of tools helps you automate operations, increase sales, and 
+            grow your Amazon business efficiently.
           </p>
         </div>
 
@@ -53,8 +64,8 @@ const FeaturesSection = () => {
               key={index}
               className="glass-card p-8 hover:scale-105 transition-all duration-300 group"
             >
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <feature.icon className="w-6 h-6 text-white" />
+              <div className={`w-16 h-16 bg-gradient-to-br ${feature.gradient} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                <feature.icon className="w-8 h-8 text-white" />
               </div>
               
               <h3 className="text-xl font-semibold mb-4 text-foreground">

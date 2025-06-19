@@ -43,7 +43,7 @@ const Loader = () => {
           {/* Center logo/text */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-xl">BK</span>
+              <span className="text-white font-bold text-xl">A</span>
             </div>
           </div>
         </div>

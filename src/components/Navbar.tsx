@@ -8,17 +8,20 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    { label: "Brand Kits", href: "#brand-kits" },
+    { label: "Home", href: "#home" },
     { label: "Features", href: "#features" },
     { label: "Testimonials", href: "#testimonials" },
     { label: "Pricing", href: "#pricing" },
-    { label: "Contact", href: "#contact" },
   ];
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    if (href === "#home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
     setIsMenuOpen(false);
   };
@@ -28,8 +31,13 @@ const Navbar = () => {
       <div className="px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-            BrandKit
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+              <span className="text-white font-bold text-lg">A</span>
+            </div>
+            <div className="text-2xl font-bold text-white">
+              Amzigo
+            </div>
           </div>
 
           {/* Desktop Menu */}
@@ -48,6 +56,12 @@ const Navbar = () => {
           {/* Right side actions */}
           <div className="flex items-center space-x-4">
             <ThemeToggle />
+            
+            <Button
+              className="hidden md:block bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold"
+            >
+              Get Started
+            </Button>
             
             {/* Mobile menu button */}
             <Button
@@ -74,6 +88,11 @@ const Navbar = () => {
                   {item.label}
                 </button>
               ))}
+              <Button
+                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold mt-4"
+              >
+                Get Started
+              </Button>
             </div>
           </div>
         )}
