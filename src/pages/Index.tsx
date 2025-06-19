@@ -4,6 +4,7 @@ import Loader from "@/components/Loader";
 import Navbar from "@/components/Navbar";
 import BrandKitsSection from "@/components/BrandKitsSection";
 import FeaturesSection from "@/components/FeaturesSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import PricingSection from "@/components/PricingSection";
 import ContactSection from "@/components/ContactSection";
 import { ThemeProvider } from "@/contexts/ThemeContext";
@@ -30,6 +31,7 @@ const Index = () => {
         <Navbar />
         <BrandKitsSection />
         <FeaturesSection />
+        <TestimonialsSection />
         <PricingSection />
         <ContactSection />
         

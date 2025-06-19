@@ -6,47 +6,67 @@ const PricingSection = () => {
   const plans = [
     {
       name: "Starter",
-      price: "$9",
-      period: "/month",
-      description: "Perfect for individuals and small projects",
+      price: "$15.99",
+      period: "per month",
+      description: "Up to 500 orders per month",
+      subtitle: "Are just starting or selling part time on Amazon. Perfect for small businesses or individuals managing a low volume of orders.",
       features: [
-        "Up to 5 brand kits",
-        "Basic templates",
-        "Cloud storage (1GB)",
-        "Mobile app access",
-        "Email support"
+        "Up to 500 orders per month",
+        "Basic review automation",
+        "Email support",
+        "Basic analytics",
+        "Mobile app access"
       ],
       popular: false
     },
     {
-      name: "Professional",
-      price: "$29",
-      period: "/month",
-      description: "Ideal for growing businesses and teams",
+      name: "Growth",
+      price: "$29.99",
+      period: "per month",
+      description: "Up to 2,500 orders per month",
+      subtitle: "Are growing and scaling operations. Ideal for sellers who are expanding their product range and need more review automation.",
+      badge: "MOST POPULAR",
       features: [
-        "Unlimited brand kits",
-        "Premium templates",
-        "Cloud storage (10GB)",
-        "Team collaboration",
-        "Version control",
+        "Up to 2,500 orders per month",
+        "Advanced review automation",
         "Priority support",
-        "Custom integrations"
+        "Advanced analytics",
+        "Team collaboration",
+        "Custom templates"
       ],
       popular: true
     },
     {
-      name: "Enterprise",
-      price: "$99",
-      period: "/month",
-      description: "For large organizations with advanced needs",
+      name: "Pro",
+      price: "$59.99",
+      period: "per month",
+      description: "Up to 10,000 orders per month",
+      subtitle: "Have an established business with consistent sales. Great for professional Amazon sellers who need detailed insights and performance tracking.",
       features: [
-        "Everything in Professional",
-        "Unlimited storage",
-        "Advanced analytics",
-        "Custom branding",
+        "Up to 10,000 orders per month",
+        "Full automation suite",
         "Dedicated support",
-        "SSO integration",
-        "API access"
+        "Advanced insights",
+        "API access",
+        "Custom integrations",
+        "Priority processing"
+      ],
+      popular: false
+    },
+    {
+      name: "Enterprise",
+      price: "$119.99",
+      period: "per month",
+      description: "30,000 orders per month",
+      subtitle: "Run a high-volume Amazon store or a large brand. Designed for power sellers who need large automation and full-scale operations.",
+      features: [
+        "30,000+ orders per month",
+        "Enterprise automation",
+        "24/7 dedicated support",
+        "Custom analytics",
+        "White-label options",
+        "Advanced API access",
+        "Custom implementations"
       ],
       popular: false
     }
@@ -56,54 +76,62 @@ const PricingSection = () => {
     <section id="pricing" className="py-24 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent mb-4">
-            Simple Pricing
-          </h2>
-          <p className="text-xl text-foreground/80 max-w-2xl mx-auto">
-            Choose the perfect plan for your brand management needs. All plans include a 14-day free trial.
+          <p className="text-foreground/80 max-w-4xl mx-auto mb-8 text-lg">
+            Find the perfect plan based on your monthly order volume. Whether you're just starting out or 
+            scaling fast, choose a plan that fits your growth and unlock the full power of our all-in-one 
+            platform.
+          </p>
+          <p className="text-2xl font-semibold text-foreground">
+            Subscriptions start from just $15.99 per month.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`glass-card p-8 hover:scale-105 transition-all duration-300 relative ${
+              className={`glass-card p-6 hover:scale-105 transition-all duration-300 relative ${
                 plan.popular ? "ring-2 ring-purple-400" : ""
               }`}
             >
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full text-sm font-semibold">
-                    Most Popular
+              {plan.badge && (
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                  <span className="bg-white/20 text-white px-4 py-1 rounded-full text-xs font-semibold backdrop-blur-sm border border-white/20">
+                    {plan.badge}
                   </span>
                 </div>
               )}
 
-              <div className="text-center mb-8">
+              <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-foreground mb-2">
                   {plan.name}
                 </h3>
-                <p className="text-foreground/70 mb-4">
+                <p className="text-foreground/80 font-medium mb-2">
                   {plan.description}
                 </p>
-                <div className="flex items-baseline justify-center">
-                  <span className="text-4xl font-bold text-foreground">
-                    {plan.price}
-                  </span>
-                  <span className="text-foreground/70 ml-1">
-                    {plan.period}
-                  </span>
+                <p className="text-foreground/70 text-sm mb-4 leading-relaxed">
+                  {plan.subtitle}
+                </p>
+                
+                <div className="border-t border-white/20 pt-4">
+                  <div className="flex items-baseline justify-center">
+                    <span className="text-3xl font-bold text-foreground">
+                      {plan.price}
+                    </span>
+                    <span className="text-foreground/70 ml-2 text-sm">
+                      {plan.period}
+                    </span>
+                  </div>
                 </div>
               </div>
 
-              <ul className="space-y-4 mb-8">
+              <ul className="space-y-3 mb-6">
                 {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center">
-                    <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center mr-3">
-                      <Check className="w-3 h-3 text-white" />
+                  <li key={featureIndex} className="flex items-start">
+                    <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                      <Check className="w-2.5 h-2.5 text-white" />
                     </div>
-                    <span className="text-foreground/80">{feature}</span>
+                    <span className="text-foreground/80 text-sm">{feature}</span>
                   </li>
                 ))}
               </ul>
