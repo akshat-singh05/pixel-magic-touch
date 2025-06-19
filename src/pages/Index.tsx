@@ -1,13 +1,48 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useEffect, useState } from "react";
+import Loader from "@/components/Loader";
+import Navbar from "@/components/Navbar";
+import BrandKitsSection from "@/components/BrandKitsSection";
+import FeaturesSection from "@/components/FeaturesSection";
+import PricingSection from "@/components/PricingSection";
+import ContactSection from "@/components/ContactSection";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 
 const Index = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate initial loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <ThemeProvider>
+      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 dark:from-gray-900 dark:via-purple-900 dark:to-blue-900">
+        <Navbar />
+        <BrandKitsSection />
+        <FeaturesSection />
+        <PricingSection />
+        <ContactSection />
+        
+        {/* Footer */}
+        <footer className="py-8 px-4 border-t border-white/10">
+          <div className="max-w-7xl mx-auto text-center">
+            <p className="text-foreground/60">
+              © 2024 BrandKit. All rights reserved. Built with ❤️ using AI tools.
+            </p>
+          </div>
+        </footer>
       </div>
-    </div>
+    </ThemeProvider>
   );
 };
 
